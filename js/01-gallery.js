@@ -32,9 +32,22 @@ function imgClick(e) {
 	if (!e.target.classList.contains("gallery__image")) {
 		return;
 	}
-	const instance = basicLightbox.create(`
-    <img src="${e.target.dataset.source}" width="800" height="600">
-`);
+	const modal = basicLightbox.create(` <img src="${e.target.dataset.source}" width="800" height="600">`, {
+		onShow: modal =>
+			document.querySelector("body").addEventListener("keyup", e => {
+				onKeyPressed(e, modal);
+			}),
+		onClose: modal =>
+			document.querySelector("body").removeEventListener("keyup", e => {
+				onKeyPressed(e, modal);
+			}),
+	});
+	modal.show();
+}
 
-	instance.show();
+function onKeyPressed(e, modal) {
+	if (e.key === "Escape") {
+		modal.close();
+	}
+	console.log(e.key);
 }

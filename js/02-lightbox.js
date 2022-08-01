@@ -23,20 +23,7 @@ function galleryMarkup(galleryItems) {
 		.join("");
 }
 
-// gallery.addEventListener("click", openModal);
-
-// function openModal(e) {
-// 	e.preventDefault();
-// 	if (e.target.clasllList.contains("gallery__image")) return;
-// }
-
 const lightbox = new SimpleLightbox(".gallery a", {
 	captionsData: "alt",
 	captionDelay: 250,
 });
-
-// let gal = new SimpleLightbox(".gallery a");
-// gal.on("show.simplelightbox", function openModal(e) {
-// 	e.preventDefault();
-// 	if (e.target.clasllList.contains("gallery__image")) return;
-// });
